@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const doctorSchema=new mongoose.model({
+const doctorSchema=new mongoose.Schema({
     user_id:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User"
@@ -22,4 +22,5 @@ const doctorSchema=new mongoose.model({
         default:false
     }
 },{timestamps:true})
-export const User=mongoose.model("Doctor",doctorSchema)
+
+export const Doctor=mongoose.model("Doctor",doctorSchema)

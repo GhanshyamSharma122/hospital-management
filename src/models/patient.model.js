@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const patientSchema=new mongoose.model({
+const patientSchema=new mongoose.Schema({
     user_id:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const recordSchema=new mongoose.model({
+const recordSchema=new mongoose.Schema({
     appointement_id:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Appointment",
