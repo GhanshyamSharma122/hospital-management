@@ -1,0 +1,11 @@
+{
+  "name": "hospital-management",
+  "version": "1.0.0",
+  "description": "a minimal hospital management system where appointment can be booked and doctors and patient details and medical records can be managed easily",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ghanshyam sharma",
+  "license": "ISC"
+}
