@@ -9,6 +9,7 @@ import { Patient } from "../models/patient.model.js"
 const generateAccessAndRefreshTokens=async (userId)=>{
     try {
         const user=await User.findById(userId)
+        console.log(user)
         const accessToken=user.generateAccessToken()
         const refreshToken=user.generateRefreshToken()
         user.refreshToken=refreshToken
@@ -173,4 +174,4 @@ async function registerUtility(req, res) {
     }
     return createdUser;
 }
-export { registerUser }
+export { registerUser ,loginUser,logoutUser}
