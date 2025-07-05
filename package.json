@@ -3,9 +3,16 @@
   "version": "1.0.0",
   "description": "a minimal hospital management system where appointment can be booked and doctors and patient details and medical records can be managed easily",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev":"nodemon src/index.js"
   },
   "author": "ghanshyam sharma",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^8.16.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }
