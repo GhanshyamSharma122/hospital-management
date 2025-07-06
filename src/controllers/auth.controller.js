@@ -39,6 +39,8 @@ const loginUser=asyncHandler(async (req,res)=>{
         httpOnly:true,
         secure:true
     }
+    console.log("this is the accesstoken ",accessToken)
+    console.log("this is the refresh token",refreshToken)
     return res
     .status(200)
     .cookie("accessToken",accessToken,options)
