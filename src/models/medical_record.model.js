@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 const recordSchema=new mongoose.Schema({
-    appointement_id:{
+    appointment_id:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Appointment",
         required:true

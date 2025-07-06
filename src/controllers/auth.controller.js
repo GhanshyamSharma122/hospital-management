@@ -9,7 +9,7 @@ import { Patient } from "../models/patient.model.js"
 const generateAccessAndRefreshTokens=async (userId)=>{
     try {
         const user=await User.findById(userId)
-        console.log(user)
+        
         const accessToken=user.generateAccessToken()
         const refreshToken=user.generateRefreshToken()
         user.refreshToken=refreshToken
@@ -39,8 +39,7 @@ const loginUser=asyncHandler(async (req,res)=>{
         httpOnly:true,
         secure:true
     }
-    console.log("this is the accesstoken ",accessToken)
-    console.log("this is the refresh token",refreshToken)
+    
     return res
     .status(200)
     .cookie("accessToken",accessToken,options)
@@ -176,4 +175,24 @@ async function registerUtility(req, res) {
     }
     return createdUser;
 }
-export { registerUser ,loginUser,logoutUser}
+const changePassword=asyncHandler(async (req,res ) => {
+    const {oldPassword,newPassword}=req.body
+    const user=await User.findById(req.user?._id)
+    const isPasswordCorrrect=await user.isPasswordCorrrect(oldPassword)
+    if(!isPasswordCorrrect){
+        throw new ApiError(404,"invalid old password")
+    }
+    user.password=newPassword
+    await user.save({validateBeforeSave:false})
+    return res
+    .status(200)
+    .json(
+        new ApiResponse(
+            200,
+            {},
+            "password changed successfully"
+        )
+    )
+
+})
+export { registerUser ,loginUser,logoutUser,changePassword}
